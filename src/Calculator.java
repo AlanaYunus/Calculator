@@ -18,7 +18,7 @@ public class Calculator {
                     result = firstNumber / secondNumber;
                     break;
                 default:
-                    throw new Exception("Введите знак операции: +, -, * или /");
+                    throw new Exception(ExceptionMessages.OPERATION_SYMBOL_MESSAGE);
             }
         return result;
         }

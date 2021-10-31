@@ -21,10 +21,7 @@ public enum RomanNumeral {
     public String getRoman() {
         return roman;
     }
-
     public int getArab() {
         return arab;
     }
-
-
 }

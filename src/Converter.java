@@ -1,4 +1,5 @@
-
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Converter {
 
@@ -15,7 +16,11 @@ public class Converter {
         return result.toString();
     }
 
-    public int convertToArab(String number) {
+    public int convertToArab(String number) throws Exception {
+
+        if (Stream.of("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X").noneMatch(n -> n.equals(number))){
+            throw new Exception(ExceptionMessages.INCORRECT_EXPRESSION_MESSAGE);
+        }
         int arabNumber = 0;
         for (int i = 0; i < number.length() - 1; i++) {
 
@@ -27,7 +32,13 @@ public class Converter {
                 arabNumber = arabNumber + currentDigit;
             }
         }
-        return arabNumber + RomanNumeral.valueOf(String.valueOf(number.charAt(number.length() - 1))).getArab();
+        int result = 0;
+        try {
+            result = arabNumber + RomanNumeral.valueOf(String.valueOf(number.charAt(number.length() - 1))).getArab();
+        } catch (IllegalArgumentException e) {
+            throw new Exception(ExceptionMessages.INCORRECT_EXPRESSION_MESSAGE);
+        }
+        return result;
     }
 }
 
