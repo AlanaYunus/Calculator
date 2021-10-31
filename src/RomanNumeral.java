@@ -1,4 +1,4 @@
-public enum Digit {
+public enum RomanNumeral {
 
     C("C", 100),
     XC("XC", 90),
@@ -13,7 +13,7 @@ public enum Digit {
     private String roman;
     private int arab;
 
-    Digit(String roman, int arab) {
+    RomanNumeral(String roman, int arab) {
         this.roman = roman;
         this.arab = arab;
     }
