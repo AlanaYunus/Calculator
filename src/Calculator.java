@@ -2,7 +2,7 @@
 
 public class Calculator {
 
-    public int calculate(int firstNumber, int secondNumber, char operation) throws Exception {
+    public int calculate(int firstNumber, int secondNumber, char operation) {
       int result;
             switch (operation) {
                 case '+':
@@ -18,7 +18,7 @@ public class Calculator {
                     result = firstNumber / secondNumber;
                     break;
                 default:
-                    throw new Exception(ExceptionMessages.OPERATION_SYMBOL_MESSAGE);
+                    throw new IncorrectInputException(ExceptionMessages.OPERATION_SYMBOL_MESSAGE);
             }
         return result;
         }

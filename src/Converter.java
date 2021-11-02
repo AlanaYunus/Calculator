@@ -16,10 +16,10 @@ public class Converter {
         return result.toString();
     }
 
-    public int convertToArab(String number) throws Exception {
+    public int convertToArab(String number) {
 
         if (Stream.of("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X").noneMatch(n -> n.equals(number))){
-            throw new Exception(ExceptionMessages.INCORRECT_EXPRESSION_MESSAGE);
+            throw new IncorrectInputException();
         }
         int arabNumber = 0;
         for (int i = 0; i < number.length() - 1; i++) {
@@ -36,7 +36,7 @@ public class Converter {
         try {
             result = arabNumber + RomanNumeral.valueOf(String.valueOf(number.charAt(number.length() - 1))).getArab();
         } catch (IllegalArgumentException e) {
-            throw new Exception(ExceptionMessages.INCORRECT_EXPRESSION_MESSAGE);
+            throw new IncorrectInputException();
         }
         return result;
     }
